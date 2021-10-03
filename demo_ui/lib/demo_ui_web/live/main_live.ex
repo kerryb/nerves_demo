@@ -5,7 +5,11 @@ defmodule DemoUiWeb.MainLive do
 
   def render(assigns) do
     ~H"""
-    Hello
+    <h1>Nerves demo</h1>
+    <form>
+      <button class="button" name="toggle-led">Turn LED on</button>
+      <p>Switch is <span class="off">OFF</span></p>
+    </form>
     """
   end
 
