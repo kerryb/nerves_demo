@@ -21,6 +21,18 @@ defmodule DemoUiWeb.MainLive do
   end
 
   def mount(_params, _session, socket) do
+    if connected?(socket) do
+      Phoenix.PubSub.subscribe(DemoUi.PubSub, "updates")
+    end
+
     {:ok, assign(socket, led_on?: false, switch_on?: false)}
+  end
+
+  def handle_info({:led, on?}, socket) do
+    {:noreply, assign(socket, led_on?: on?)}
+  end
+
+  def handle_info({:switch, on?}, socket) do
+    {:noreply, assign(socket, switch_on?: on?)}
   end
 end
