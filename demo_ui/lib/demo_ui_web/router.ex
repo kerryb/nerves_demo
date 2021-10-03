@@ -17,7 +17,7 @@ defmodule DemoUiWeb.Router do
   scope "/", DemoUiWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", MainLive, :index
   end
 
   # Other scopes may use custom stacks.
