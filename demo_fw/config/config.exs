@@ -14,7 +14,7 @@ config :demo_fw, target: Mix.target()
 import_config "../../demo_ui/config/config.exs"
 import_config "../../demo_ui/config/prod.exs"
 
-config :demo_ui, MyAppUiWeb.Endpoint,
+config :demo_ui, DemoUiWeb.Endpoint,
   # Nerves root filesystem is read-only, so disable the code reloader
   code_reloader: false,
   http: [port: 80],
