@@ -10,19 +10,20 @@ Application.start(:nerves_bootstrap)
 
 config :demo_fw, target: Mix.target()
 
-# When we deploy to a device, we use the "prod" configuration:
 import_config "../../demo_ui/config/config.exs"
-import_config "../../demo_ui/config/prod.exs"
 
 config :demo_ui, DemoUiWeb.Endpoint,
   # Nerves root filesystem is read-only, so disable the code reloader
   code_reloader: false,
+  watchers: [],
   http: [port: 80],
   # Use compile-time Mix config instead of runtime environment variables
   load_from_system_env: false,
   # Start the server since we're running in a release instead of through `mix`
   server: true,
-  url: [host: "nerves.local", port: 80]
+  url: [host: "nerves.local", port: 80],
+  # Don't hardcode this in a real production app!
+  secret_key_base: "PFuu4yrlzgV1xxXnyiX24E8mpsWB19PazNuM3j8rtHRBJwpVMXcizg7c1ezjMYz7"
 
 # Customize non-Elixir parts of the firmware. See
 # https://hexdocs.pm/nerves/advanced-configuration.html for details.
