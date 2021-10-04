@@ -15,7 +15,7 @@ defmodule DemoFw.Application do
       [
         # Children for all targets
         # Starts a worker by calling: DemoFw.Worker.start_link(arg)
-        {DemoFw, []}
+        # {DemoFw.Worker, arg},
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)
@@ -34,7 +34,7 @@ defmodule DemoFw.Application do
     [
       # Children for all targets except host
       # Starts a worker by calling: DemoFw.Worker.start_link(arg)
-      # {DemoFw.Worker, arg},
+      {DemoFw, []}
     ]
   end
 
