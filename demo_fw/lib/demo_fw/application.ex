@@ -15,7 +15,7 @@ defmodule DemoFw.Application do
       [
         # Children for all targets
         # Starts a worker by calling: DemoFw.Worker.start_link(arg)
-        # {DemoFw.Worker, arg},
+        {DemoFw, []}
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)
