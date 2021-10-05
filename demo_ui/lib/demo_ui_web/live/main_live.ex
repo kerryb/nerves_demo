@@ -25,7 +25,7 @@ defmodule DemoUiWeb.MainLive do
       Phoenix.PubSub.subscribe(DemoUi.PubSub, "updates")
     end
 
-    {:ok, assign(socket, led_on?: false, switch_on?: false)}
+    {:ok, assign(socket, switch_on?: false)}
   end
 
   def handle_event("toggle-led", _params, socket) do
