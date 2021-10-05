@@ -37,6 +37,7 @@ defmodule DemoFw.MixProject do
       {:toolshed, "~> 0.2"},
       {:demo_ui, path: "../demo_ui"},
       {:circuits_gpio, "~> 0.4"},
+
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.11", targets: @all_targets},
       {:nerves_pack, "~> 0.5", targets: @all_targets},
