@@ -23,6 +23,7 @@ defmodule DemoFw do
   def handle_info(:toggle_led, state) do
     led_on? = not state.led_on?
     GPIO.write(state.led, if(led_on?, do: 1, else: 0))
+    Phoenix.PubSub.broadcast!(DemoUi.PubSub, "updates", {:led, led_on?})
     {:noreply, %{state | led_on?: led_on?}}
   end
 
